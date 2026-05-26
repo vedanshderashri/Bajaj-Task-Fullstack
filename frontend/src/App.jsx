@@ -44,6 +44,7 @@ function App() {
       setTickets(data);
       setGeneralError('');
     } catch (err) {
+      console.error('Error fetching tickets:', err);
       setGeneralError('Error loading tickets. Please make sure the backend is running.');
     } finally {
       setLoading(false);
@@ -123,6 +124,7 @@ function App() {
       fetchTickets();
       fetchStats();
     } catch (err) {
+      console.error('Error creating ticket:', err);
       setGeneralError('Network error trying to submit ticket.');
     }
   };
@@ -146,6 +148,7 @@ function App() {
       fetchTickets();
       fetchStats();
     } catch (err) {
+      console.error('Error updating status:', err);
       setGeneralError('Network error trying to update status.');
     }
   };
@@ -168,6 +171,7 @@ function App() {
       fetchTickets();
       fetchStats();
     } catch (err) {
+      console.error('Error deleting ticket:', err);
       setGeneralError('Network error trying to delete ticket.');
     }
   };
