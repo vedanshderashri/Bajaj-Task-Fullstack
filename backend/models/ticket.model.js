@@ -54,14 +54,13 @@ const ticketSchema = new mongoose.Schema(
   }
 );
 
-// Virtual field: ageMinutes
+
 ticketSchema.virtual('ageMinutes').get(function () {
   const endTime = this.resolvedAt ? new Date(this.resolvedAt) : new Date();
   const diffMs = endTime - new Date(this.createdAt);
   return Math.max(0, Math.floor(diffMs / 1000 / 60));
 });
 
-// Virtual field: slaBreached
 ticketSchema.virtual('slaBreached').get(function () {
   const age = this.ageMinutes;
   const target = SLA_TARGETS[this.priority];
