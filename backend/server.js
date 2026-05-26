@@ -7,7 +7,7 @@ const ticketRoutes = require('./routes/ticket.routes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/deskflow';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://bajaj:gMZ2lwUGdeWJTPcE@cluster0.44anofi.mongodb.net/?appName=Cluster0';
 
 // Middleware
 app.use(cors());
