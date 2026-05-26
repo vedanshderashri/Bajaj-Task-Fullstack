@@ -1,0 +1,9 @@
+{
+  "name": "deskflow-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install": "npm install --prefix backend",
+    "start": "npm start --prefix backend"
+  }
+}
