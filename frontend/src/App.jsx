@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-const API_URL = import.meta.env.VITE_API_URL || 
+let API_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:5000/tickets'
     : 'https://bajaj-task-fullstack.onrender.com/tickets');
+
+// Ensure /tickets is appended if the user configured VITE_API_URL as the root domain
+if (import.meta.env.VITE_API_URL && !API_URL.endsWith('/tickets')) {
+  // strip trailing slash if exists, then append /tickets
+  API_URL = API_URL.replace(/\/$/, '') + '/tickets';
+}
 
 function App() {
   const [tickets, setTickets] = useState([]);
